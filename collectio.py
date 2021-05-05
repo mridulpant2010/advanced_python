@@ -129,7 +129,7 @@ def arg_parse(parser):
     parser.add_argument('-a','age')
     
     args=parser.parse_args()
-    dict_args={k:v for k,v in vars(args).items() if value}
+    dict_args={k:v for k,v in vars(args).items() if v}
     return dict_args
 
 def main(): 
