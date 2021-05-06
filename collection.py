@@ -118,10 +118,16 @@ new_d = OrderedDict(sorted(d.items()))
 print (new_d)
 
 #consider using the 2 more functions in OrderedDict e.g: popitem, move_to_end.
+#the above 2 methods are not present in the dictionary.
 
+#OrderedDict doesn't orders the element ,it preserves the order you give it.
+d={}
+d['c']=1
+d['f']=3
+d['a']=2
 
 import argparse
-from collection import namedtuple
+from collections import namedtuple
 
 def arg_parse(parser): 
     
@@ -129,7 +135,7 @@ def arg_parse(parser):
     parser.add_argument('-a','age')
     
     args=parser.parse_args()
-    dict_args={k:v for k,v in vars(args).items() if value}
+    dict_args={k:v for k,v in vars(args).items() if v}
     return dict_args
 
 def main(): 
