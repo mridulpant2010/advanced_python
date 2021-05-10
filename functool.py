@@ -20,7 +20,7 @@ import requests
 
 @lru_cache
 @contextmanager
-def get_webpage(module):
+def get_webpage(module: str):
     webpage="https://docs.python.org/3/library/{}.html".format(module)
     try:
         req=requests.get(webpage)
@@ -65,19 +65,19 @@ def add(a,b):
     raise NotImplementedError('unsupported error')
 
 @add.register(int)
-def _(a,b):
+def _(a:int,b:int)-> int:
     print("first argument is of type ",type(a))
     print(a+b)
     
     
 @add.register(str)
-def _(a,b):
+def _(a: str,b: str)-> str:
     print("first argument is of type ",type(a))
     print(a+b)
     
     
 @add.register(list)
-def _(a,b):
+def _(a: list,b: list)-> list:
     c=[x+y for x,y in zip(a,b)]
     print(c)
 
