@@ -1,4 +1,26 @@
 from functools import wraps
+from datetime import datetime
+
+def time_func(func):
+ def inner(*args):
+  start_time=datetime.now()
+  print("{} : Started".format(str(start_time)))
+  func(*args)
+  end_time=datetime.now()
+  print("{} : Completed in {} minutes".format(str(end_time),str(end_time-start_time)))
+  return 
+ return inner
+
+@time_func
+def calc(a,b,op):
+    if op=='+':
+        return a+b
+    elif op=='-':
+        return b-a
+    elif op=='*':
+        return a*b
+    elif op=='/':
+        return b/a
 
 def handle_division(func):
     
